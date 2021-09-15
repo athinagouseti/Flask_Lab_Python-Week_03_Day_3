@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<html>
+    <head>
+        <title>{{ title }} - Book Orders</title>
+    </head>
+    <body>
+        <h1>Book Orders</h1>
+        <div id="cat">
+            <img src="/static/polite_cat.jpeg">
+        </div>
+        {% for order in orders %}
+        <div id="order_links">
+                <nav>
+                    <a href="/order/{{ orders.index(order)}}">Order</a>
+                </nav>
+            <p>
+                {{ order.customer_name }}: <br> {{ order.order_date }} <br> {{ order.quantity}} <br>
+            </p>
+        </div>
+        {% endfor %}
+    </body>
+    <footer>
+        <h2>Yours sincerely, Olli the polite cat</h2>
+    </footer>
+</html>
